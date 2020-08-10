@@ -1,4 +1,4 @@
-const {add,sub,mult,div, pow, div_, sub_, pow_} = require('../index.js');
+const {add,sub,mult,div, pow, flip,gt,lt,lteq,gteq,eq} = require('../index.js');
 const assert = require('assert');
 
 describe("add", function() {
@@ -34,25 +34,46 @@ describe("pow", function() {
         assert.strictEqual(pow(2)(3), 9);
         assert.deepStrictEqual([1,2,3].map(pow(2)), [1,4,9]);
     })
-})
+});
 
-describe("div_", function() {
+describe("gt", function() {
     it("works", function() {
-        assert.strictEqual(div_(4)(2), 2);
-        assert.deepStrictEqual([1,2,3].map(div_(6)), [6,3,2]);
+        assert.strictEqual(gt(3)(2), false);
+        assert.deepStrictEqual([1,2,3,4,5,6,7,8].filter(gt(3)), [4,5,6,7,8]);
     });
 });
 
-describe("sub_", function() {
+describe("lt", function() {
     it("works", function() {
-        assert.strictEqual(sub_(4)(2), 2);
-        assert.deepStrictEqual([1,2,3].map(sub_(3)), [2,1,0]);
-    })
+        assert.strictEqual(lt(3)(2), true);
+        assert.deepStrictEqual([1,2,3,4,5,6,7,8].filter(lt(3)), [1,2]);
+    });
 });
 
-describe("pow_", function() {
+describe("gteq", function() {
     it("works", function() {
-        assert.strictEqual(pow_(3)(2), 9);
-        assert.deepStrictEqual([1,2,3].map(pow_(2)), [2,4,8])
+        assert.strictEqual(gteq(3)(3), true);
+        assert.deepStrictEqual([1,2,3,4,5,6,7,8].filter(gteq(3)), [3,4,5,6,7,8]);
+    });
+});
+
+describe("lteq", function() {
+    it("works", function() {
+        assert.strictEqual(lteq(4)(3), true);
+        assert.deepStrictEqual([1,2,3,4,5,6,7,8].filter(lteq(3)), [1,2,3]);
+    });
+});
+
+describe("eq", function() {
+    it("works", function() {
+        assert.strictEqual(eq(4)(4), true);
+        assert.deepStrictEqual([1,2,3,4,4,5,6,7,7,8,9].filter(eq(4)), [4,4]);
+    });
+})
+
+describe("flip", function() {
+    it("works", function() {
+        assert.strictEqual(flip(sub)(3)(2), 1);
+        assert.deepStrictEqual([1,2,3].map(flip(div)(6)), [6,3,2]);
     })
 })
