@@ -1,4 +1,4 @@
-const {add,sub,mult,div, pow} = require('../index.js');
+const {add,sub,mult,div, pow, div_, sub_, pow_} = require('../index.js');
 const assert = require('assert');
 
 describe("add", function() {
@@ -33,5 +33,26 @@ describe("pow", function() {
     it("works", function() {
         assert.strictEqual(pow(2)(3), 9);
         assert.deepStrictEqual([1,2,3].map(pow(2)), [1,4,9]);
+    })
+})
+
+describe("div_", function() {
+    it("works", function() {
+        assert.strictEqual(div_(4)(2), 2);
+        assert.deepStrictEqual([1,2,3].map(div_(6)), [6,3,2]);
+    });
+});
+
+describe("sub_", function() {
+    it("works", function() {
+        assert.strictEqual(sub_(4)(2), 2);
+        assert.deepStrictEqual([1,2,3].map(sub_(3)), [2,1,0]);
+    })
+});
+
+describe("pow_", function() {
+    it("works", function() {
+        assert.strictEqual(pow_(3)(2), 9);
+        assert.deepStrictEqual([1,2,3].map(pow_(2)), [2,4,8])
     })
 })
