@@ -1,0 +1,17 @@
+{
+    "name": "curry-utils",
+    "devDependencies": {
+        "mocha": "^8.1.1"
+    },
+    "license": "GPL-3",
+    "version": "0.1.0",
+    "description": "Isomorphic javascript currying utility functions",
+    "repository": "https://github.com/zachiah/curry-utils",
+    "keywords": ["currying", "utility", "utils", "util", "functional"],
+    "homepage": "https://github.com/zachiah/curry-utils#readme",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha"
+    }
+
+}
