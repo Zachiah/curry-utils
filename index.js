@@ -8,9 +8,16 @@ exports.sub = (a) => (b) => (b - a);
 exports.div = (a) => (b) => (b / a);
 exports.pow = (a) => (b) => (b ** a);
 
-// Simple Boolean
+// Comparison
 exports.eq = (a) => (b) => (b === a);
 exports.lt = (a) => (b)  => (b < a);
 exports.lteq = (a) => (b) => (b <= a);
 exports.gt = (a) => (b) => (b > a);
 exports.gteq = (a) => (b) => (b >= a);
+
+// Boolean
+exports.and = (a) => (b) => (c) => (b(c) && a(c));
+exports.andFunc = exports.and;
+
+exports.or = (a) => (b) => (c) => (b(c) || a(c));
+exports.orFunc = exports.or;
