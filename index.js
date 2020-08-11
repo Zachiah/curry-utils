@@ -17,7 +17,5 @@ exports.gteq = (a) => (b) => (b >= a);
 
 // Boolean
 exports.and = (a) => (b) => (c) => (b(c) && a(c));
-exports.andFunc = exports.and;
-
 exports.or = (a) => (b) => (c) => (b(c) || a(c));
-exports.orFunc = exports.or;
+exports.not = (a) => (b) => !a(b);

@@ -1,4 +1,4 @@
-const {add,sub,mult,div, pow, flip,gt,lt,lteq,gteq,eq, andFunc, orFunc} = require('../index.js');
+const {add,sub,mult,div, pow, flip,gt,lt,lteq,gteq,eq, and, or, not} = require('../index.js');
 const assert = require('assert');
 
 describe("add", function() {
@@ -78,22 +78,29 @@ describe("flip", function() {
     })
 });
 
-describe("andFunc", function() {
+describe("and", function() {
     it("works", function() {
-        assert.strictEqual(andFunc(gt(7))(lteq(8))(8), true);
+        assert.strictEqual(and(gt(7))(lteq(8))(8), true);
         assert.deepStrictEqual(
             [0,1,2,3,4,5,6,7,8,9,10,11,12,13].filter(
-                andFunc(gt(7))(lt(7))
+                and(gt(7))(lt(7))
             ), []
         );
     });
 });
 
-describe("orFunc", function() {
+describe("or", function() {
     it("works", function() {
-        assert.strictEqual(orFunc(gt(7))(lt(7))(7), false);
+        assert.strictEqual(or(gt(7))(lt(7))(7), false);
         assert.deepStrictEqual([0,1,2,3,4,5,6,7,8,9,10].filter(
-            orFunc(gt(3))(lt(3))
+            or(gt(3))(lt(3))
         ), [0,1,2,4,5,6,7,8,9,10]);
     });
+});
+
+describe("not", function() {
+    it("works", function() {
+        assert.strictEqual(not(gt(7))(8), false);
+        assert.deepStrictEqual([0,1,2,3,4,5].filter(not(gt(2))), [0,1,2]);
+    })
 });
