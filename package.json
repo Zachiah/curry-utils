@@ -4,10 +4,10 @@
         "mocha": "^8.1.1"
     },
     "license": "GPL-3",
-    "version": "1.0",
-    "description": "Isomorphic javascript currying utility functions",
+    "version": "1.0.1",
+    "description": "A tiny library for isomorphic javascript currying utility functions",
     "repository": "https://github.com/zachiah/curry-utils",
-    "keywords": ["currying", "utility", "utils", "util", "functional"],
+    "keywords": ["currying", "utility", "utils", "util", "functional", "curry", "tiny"],
     "homepage": "https://github.com/zachiah/curry-utils#readme",
     "main": "index.js",
     "scripts": {
